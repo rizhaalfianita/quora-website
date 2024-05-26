@@ -24,7 +24,7 @@ const predict = async () => {
   try {
     isOnPredict.value = true;
     const response = await fetch(
-      "http://127.0.0.1:5000/predict/" + inputValue.value
+      "https://quora-model.onrender.com/predict/" + inputValue.value
     );
 
     if (!response.ok) {
@@ -66,7 +66,7 @@ const imageSrc = computed(() => {
 
 onMounted(async () => {
   try {
-    const response = await fetch("http://127.0.0.1:5000/dataset");
+    const response = await fetch("https://quora-model.onrender.com/dataset");
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
