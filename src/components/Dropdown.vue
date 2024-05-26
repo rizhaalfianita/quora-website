@@ -31,9 +31,11 @@ const selectOption = (e) => {
     class="bg-lightred rounded-lg text-red focus:outline-none font-medium text-sm px-4 py-2 mb-4 text-center inline-flex items-center max-sm:py-1"
     type="button"
   >
-    <span class="text-sm max-w-80 truncate max-sm:text-xs">{{ selectedOptionVal }}</span>
+    <span class="text-sm max-w-80 md:truncate max-sm:text-xs max-sm:text-left max-sm:line-clamp-2">{{
+      selectedOptionVal
+    }}</span>
     <svg
-      class="w-2.5 h-2.5 ms-3"
+      class="w-2.5 h-2.5 ms-3 max-sm:w-3 max-sm:h-3"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -56,7 +58,7 @@ const selectOption = (e) => {
       v-if="items"
     >
       <li
-        class="block px-4 py-2 hover:bg-whiten cursor-pointer"
+        class="block px-4 py-2 hover:bg-darker cursor-pointer"
         @click="selectOption"
         v-for="(item, index) in items"
         :key="index"

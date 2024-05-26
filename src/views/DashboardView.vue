@@ -82,13 +82,14 @@ onMounted(async () => {
 });
 
 const filteredDatasetItems = computed(() => {
-  if (isSincereSelected.value) {
-    return datasetItems.value?.filter((item) => item.target === 0);
-  } else if (!isSincereSelected.value) {
-    return datasetItems.value?.filter((item) => item.target === 1);
-  } else {
-    return datasetItems.value;
-  }
+  // if (isSincereSelected.value) {
+  //   return datasetItems.value?.filter((item) => item.target === 0);
+  // } else if (!isSincereSelected.value) {
+  //   return datasetItems.value?.filter((item) => item.target === 1);
+  // } else {
+  //   return datasetItems.value;
+  // }
+  return datasetItems.value;
 });
 
 const handleSelectedClass = (isSincere) => {
@@ -148,9 +149,11 @@ const handleSelectedQuestion = (selectedValue) => {
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
     <div class="bg-white shadow-md rounded-lg p-6 col-span-2">
-      <h3 class="font-medium text-lg md:text-2xl text-darkest mb-4">Detect Question</h3>
+      <h3 class="font-medium text-lg md:text-2xl text-darkest mb-4">
+        Detect Question
+      </h3>
       <div class="flex justify-between max-sm:flex-wrap max-sm:gap-2">
-        <div class="text-sm">
+        <!-- <div class="text-sm">
           <button
             :class="[
               'bg-extralightgrey px-5 py-2 text-darkest rounded-lg mr-2 max-sm:text-xs max-sm:py-1 max-sm:px-4 max-sm:mr-1',
@@ -169,7 +172,7 @@ const handleSelectedQuestion = (selectedValue) => {
           >
             Insincere
           </button>
-        </div>
+        </div> -->
         <!--DROPDOWN-->
         <DropdownSentence
           @questionSelected="handleSelectedQuestion"
@@ -196,7 +199,7 @@ const handleSelectedQuestion = (selectedValue) => {
         </button>
       </div>
     </div>
-    <div class="bg-white shadow-md rounded-lg p-6 w-full">
+    <div class="bg-white shadow-md rounded-lg p-6 max-sm:col-span-2">
       <div
         :class="[
           'flex justify-center mb-4',
@@ -240,7 +243,7 @@ const handleSelectedQuestion = (selectedValue) => {
           aria-expanded="false"
           aria-controls="accordion-flush-body-1"
         >
-          <span>The Process</span>
+          <span class="md:text-2xl text-lg">The Process</span>
           <svg
             data-accordion-icon
             class="w-3 h-3 rotate-180 shrink-0"
@@ -413,7 +416,7 @@ const handleSelectedQuestion = (selectedValue) => {
               </p>
               <p class="text-sm font-medium text-darkest mt-3">Prior</p>
               <div
-                class="flex gap-4 p-3 mt-1 bg-darker rounded-md text-dark font-medium text-sm"
+                class="flex max-sm:flex-wrap gap-4 p-3 mt-1 bg-darker rounded-md text-dark font-medium text-sm"
               >
                 <p class="font-normal" v-for="(val, index) in priors">
                   <span class="font-medium text-gray-600">{{
@@ -424,7 +427,7 @@ const handleSelectedQuestion = (selectedValue) => {
               </div>
               <p class="text-sm font-medium text-darkest mt-3">Likelihoods</p>
               <div
-                class="flex gap-4 p-3 mt-1 bg-darker rounded-md text-dark font-medium text-sm"
+                class="flex max-sm:flex-wrap gap-4 p-3 mt-1 bg-darker rounded-md text-dark font-medium text-sm"
               >
                 <p class="font-normal" v-for="(val, index) in likelihoods">
                   <span class="font-medium text-gray-600">{{
@@ -435,7 +438,7 @@ const handleSelectedQuestion = (selectedValue) => {
               </div>
               <p class="text-sm font-medium text-darkest mt-3">Posteriors</p>
               <div
-                class="flex gap-4 p-3 mt-1 bg-darker rounded-md text-dark font-medium text-sm"
+                class="flex max-sm:flex-wrap gap-4 p-3 mt-1 bg-darker rounded-md text-dark font-medium text-sm"
               >
                 <p class="font-normal" v-for="(val, index) in posteriors">
                   <span class="font-medium text-gray-600">{{
