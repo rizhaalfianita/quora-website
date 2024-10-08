@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Dashboard from "../views/DashboardView.vue";
 import Dataset from "../views/DatasetView.vue";
+import Research from "../views/ResearchView.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/dataset",
     name: "Dataset",
     component: Dataset,
+  },
+  {
+    path: "/research",
+    name: "Research",
+    component: Research,
   },
 ];
 
